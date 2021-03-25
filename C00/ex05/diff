@@ -1,0 +1,14 @@
+4c4
+< /*   ft_print_comb.c                                    :+:      :+:    :+:   */
+---
+> /*   test.c                                             :+:      :+:    :+:   */
+9c9
+< /*   Updated: 2021/03/25 17:20:46 by ubuntu           ###   ########.fr       */
+---
+> /*   Updated: 2021/03/25 21:46:39 by ubuntu           ###   ########.fr       */
+56a57,61
+> }
+> 
+> int		main(void)
+> {
+> 	ft_print_comb();
