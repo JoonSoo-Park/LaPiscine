@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:46:16 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/26 18:49:07 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:52:27 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int		main(void)
 {
 	char *str1 = "123512897918274891";
 	char *str2 = " 1892yroifh2984y912ur";
+	char *str3 = "";
 
 	printf("%d\n", ft_str_is_numeric(str1));
 	printf("%d\n", ft_str_is_numeric(str2));
+	printf("%d\n", ft_str_is_numeric(str3));
 }

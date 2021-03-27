@@ -5,40 +5,54 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 23:35:40 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/25 23:50:00 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/27 23:51:07 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/28 02:47:15 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void	ft_sort_int_tab(int *tab, int size)
+void		ft_putchar(char c)
 {
-	int i;
-	int j;
-	int key;
+	write(1, &c, 1);
+}
 
-	i = 1;
-	while (i < size)
+int			is_printable(char c)
+{
+	if (c >= 32 && c < 127)
 	{
-		key = tab[i];
-		j = i - 1;
-		while (j >= 0 && tab[j] > key)
+		return (1);
+	}
+	return (0);
+}
+
+void		ft_putstr_non_printable(char *str)
+{
+	const char	*hex_look_up = "0123456789abcdef";
+	int			index;
+	char		c;
+
+	index = 0;
+	while (str[index] != '\0')
+	{
+		c = str[index];
+		if (!is_printable(c))
 		{
-			tab[j + 1] = tab[j];
-			j--;
+			ft_putchar('\\');
+			ft_putchar(hex_look_up[c / 16]);
+			ft_putchar(hex_look_up[c % 16]);
 		}
-		tab[j + 1] = key;
-		i++;
+		else
+		{
+			ft_putchar(c);
+		}
+		++index;
 	}
 }
 
 int		main(void)
 {
-	int a[7] = {1,5,2,8, 9, 0, 14};
-	ft_sort_int_tab(&a[0], 7);
-
-	for (int i = 0; i < 7; ++i) {
-		printf("%d, ", a[i]);
-	}
+	char	*str = "Coucou\ntu vas	bien ?";
+	ft_putstr_non_printable(str);
+	return (0);
 }

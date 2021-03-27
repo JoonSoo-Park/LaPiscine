@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 21:06:22 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/26 21:24:58 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:54:27 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int		main(void)
 	char *str1 = "aisdhvlkjdivjhILHIHDFIOHF";
 	char *str2 = "klajfij3ijigov984aikv";
 	char *str3 = "iaojhvelkvhjsldiafhjailshfd";
+	char *str4 = "";
 
 	printf("%d\n", ft_str_is_lowercase(str1));
 	printf("%d\n", ft_str_is_lowercase(str2));
 	printf("%d\n", ft_str_is_lowercase(str3));
+	printf("%d\n", ft_str_is_lowercase(str4));
 }

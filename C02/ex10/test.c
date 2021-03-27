@@ -5,35 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 23:23:53 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/25 23:34:36 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/27 22:51:29 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/27 23:41:04 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int n;
-	int tmp;
+	int index;
 
-	n = 0;
-	while (n < size / 2)
+	index = 0;
+	while (index < (size - 1) && src[index] != '\0')
 	{
-		tmp = *(tab + n);
-		*(tab + n) = *(tab + size - n - 1);
-		*(tab + size - n - 1) = tmp;
-		n++;
+		dest[index] = src[index];
+		++index;
 	}
+	dest[index] = '\0';
+	return (index);
 }
 
-int		main(void)
+int main()
 {
-	int arr[5] = {1,2,3,4,5};
+	char dst[40];
+	char *src = "";
 
-	ft_rev_int_tab(&arr[0], 5);
-	
-	for (int i = 0; i < 5; ++i) {
-		printf("%d ,", arr[i]);
-	}
+	ft_strlcpy(dst, src, 40);
+	printf("%s\n", src);
+	printf("%s\n", dst);
+
+	char dst2[40];
+	char *src2 = "1234567890123456789012345678901234567890123456";
+	ft_strlcpy(dst2, src2, 40);
+	printf("%s\n", src2);
+	printf("%s\n", dst2);
 }

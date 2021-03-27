@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: joonpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 22:54:25 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/25 22:56:28 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/27 21:20:40 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/27 21:34:07 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	ft_ft(int *nbr)
-{
-	*nbr = 42;
-}
+void	rush(int x, int y);
 
 int		main(void)
 {
-	int a;
-
-	ft_ft(&a);
-	printf("%d\n", a);
+	rush(5, 3);
+	return (0);
 }

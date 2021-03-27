@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 23:08:26 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/25 23:11:03 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/28 02:56:33 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/28 03:11:12 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void	ft_ultimate_div_mod(int *a, int *b)
+void		ft_putchar(char c)
 {
-	int div;
-	int mod;
-
-	div = *a / *b;
-	mod = *a % *b;
-	*a = div;
-	*b = mod;
+	write(1, &c, 1);
 }
 
-int		main(void)
+int			is_printable(char c)
 {
-	int a = 5;
-	int b = 2;
+	if (c >= 32 && c < 127)
+	{
+		return (1);
+	}
+	return (0);
+}
 
-	ft_ultimate_div_mod(&a, &b);
-	printf("%d, %d\n", a, b);
+void		*ft_print_memory(void *addr, unsigned int size)
+{
+	
 }

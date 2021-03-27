@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 21:29:56 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/26 21:59:35 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/27 17:18:44 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ int main(void)
 	char *str1 = "asj\x7Fifhawoeivalkcvj\x73";
 	char *str2 = "aiosehvieFOLLOWING IS A SPACE sahf";
 	char *str3 = "aiosehvieFOLLOWING IS A TAB	sahf";
-	char *str4 = "x12i4eflaisefjilsej\n";
+	char *str4 = "x12i4eflaisefjilsej'[]+=/?.,><";
+	char *str5 = "";
 
 	printf("%d\n", ft_str_is_printable(str));
 	printf("%d\n", ft_str_is_printable(str1));
 	printf("%d\n", ft_str_is_printable(str2));
 	printf("%d\n", ft_str_is_printable(str3));
 	printf("%d\n", ft_str_is_printable(str4));
+	printf("%d\n", ft_str_is_printable(str5));
 }

@@ -1,47 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 23:11:37 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/25 23:18:29 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/27 23:51:07 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/28 02:47:42 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-void ft_putchar(char c)
+void		ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+int			is_printable(char c)
 {
-	int idx;
-
-	idx = 0;
-	while (str[idx] != '\0')
+	if (c >= 32 && c < 127)
 	{
-		ft_putchar(str[idx++]);
+		return (1);
 	}
+	return (0);
 }
 
-int		main(void)
+void		ft_putstr_non_printable(char *str)
 {
-	char string[5];
-	char *first_pointer;
+	const char	*hex_look_up = "0123456789abcdef";
+	int			index;
+	char		c;
 
-	string[0] = 'H';
-	string[1] = 'H';
-	string[2] = 'H';
-	string[3] = 'H';
-	string[4] = '\0';
-
-	first_pointer = &string[0];
-	printf("%s\n", string);
-	ft_putstr(first_pointer);
-	ft_putstr("THis is the second");
+	index = 0;
+	while (str[index] != '\0')
+	{
+		c = str[index];
+		if (!is_printable(c))
+		{
+			ft_putchar('\\');
+			ft_putchar(hex_look_up[c / 16]);
+			ft_putchar(hex_look_up[c % 16]);
+		}
+		else
+		{
+			ft_putchar(c);
+		}
+		++index;
+	}
 }

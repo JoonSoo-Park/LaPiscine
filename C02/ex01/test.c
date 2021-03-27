@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:26:19 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/26 18:32:04 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:27:18 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char			*ft_strncpy(char *dest, char *src, unsigned int n)
 int				main(void)
 {
 	char *src;
-	char dest[40];
+	char dest[100];
 
 	src = "Hello World";
 	printf("%s\n", src);
@@ -41,7 +41,7 @@ int				main(void)
 	printf("%s\n", dest);
 
 	src = "This is the world most biggest effel towel, made in South Africa";
-	ft_strncpy(dest, src, 50);
+	ft_strncpy(dest, src, 90);
 	printf("%s\n", dest);
 
 }

@@ -1,52 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush04.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:53:36 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/26 17:05:17 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/27 21:26:23 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	print_opt(int column, int row, int x, int y)
 {
-	if (row == 0)
+	if ((row == 0 && column == 0) ||
+		(row == 0 && column == (x - 1)) ||
+		(row == (y - 1) && column == 0) ||
+		(row == (y - 1) && column == (x - 1)))
 	{
-		if (column == 0)
-			ft_putchar('A');
-		else if (column == (x - 1))
-			ft_putchar('C');
-		else
-			ft_putchar('B');
+		ft_putchar('o');
 	}
-	else if (row == (y - 1))
+	else if ((row == 0 || row == (y - 1)) &&
+			(column > 0 && column < (x - 1)))
 	{
-		if (column == 0)
-			ft_putchar('C');
-		else if (column == (x - 1))
-			ft_putchar('A');
-		else
-			ft_putchar('B');
+		ft_putchar('-');
+	}
+	else if ((row > 0 && row < (y - 1)) &&
+			(column == 0 || column == (x - 1)))
+	{
+		ft_putchar('|');
 	}
 	else
 	{
-		if (column == 0 || column == (x - 1))
-			ft_putchar('B');
-		else
-			ft_putchar(' ');
+		ft_putchar(' ');
 	}
 }
 
-void	func(int x, int y)
+void	rush(int x, int y)
 {
 	int row;
 	int column;
@@ -63,23 +52,4 @@ void	func(int x, int y)
 		++row;
 		ft_putchar('\n');
 	}
-}
-
-int		main(void)
-{
-	func(5, 3);
-	ft_putchar('\n');
-	func(5, 1);
-	ft_putchar('\n');
-	func(1, 1);
-	ft_putchar('\n');
-	func(1, 5);
-	ft_putchar('\n');
-	func(4, 4);
-	ft_putchar('\n');
-	func(0, 0);
-	ft_putchar('\n');
-	func(0, 1);
-	ft_putchar('\n');
-	func(1, 0);
 }
