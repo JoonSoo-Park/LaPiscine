@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 02:56:33 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/28 06:06:27 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/28 06:17:47 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,15 @@ void		printaddr(unsigned int addr)
 
 void		*ft_print_memory(void *addr, unsigned int size)
 {
-	char *temp;
+	char	*temp;
+
 	temp = addr;
 	while (size > 0)
 	{
-		printaddr(*temp);
-		temp += 16;
+		print_addr(temp);
 		size -= 16;
+		temp += 16;
 	}
-	return (addr);
 }
 
 int			main(void)
