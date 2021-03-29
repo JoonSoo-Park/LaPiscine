@@ -6,27 +6,101 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 02:56:33 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/28 03:11:12 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/29 22:36:38 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+const char	*g_hex_look_up = "0123456789abcdef";
 
 int			is_printable(char c)
 {
-	if (c >= 32 && c < 127)
+	return (c >= 32 && c < 127);
+}
+
+void		ft_print_hex_addr(char buffer[], unsigned int radix, long addr)
+{
+	unsigned int	buf_index;
+	unsigned int	index;
+
+	buf_index = 0;
+	while (buf_index < radix)
 	{
-		return (1);
+		buffer[buf_index] = '0';
+		++buf_index;
 	}
-	return (0);
+	--buf_index;
+	while (addr > 0)
+	{
+		buffer[buf_index] = g_hex_look_up[addr % radix];
+		addr /= radix;
+		--buf_index;
+	}
+	index = 0;
+	while (index < 16)
+	{
+		write(1, &buffer[index], 1);
+		++index;
+	}
+	write(1, &": ", 2);
+}
+
+void		ft_print_hex(char *str, int size)
+{
+	char			c;
+	unsigned int	index;
+	int				ct;
+
+	index = 0;
+	ct = 1;
+	while (index < size)
+	{
+		c = str[index++];
+		write(1, &g_hex_look_up[c / 16], 1);
+		write(1, &g_hex_look_up[c % 16], 1);
+		if (ct % 2 == 0)
+			write(1, &" ", 1);
+		++ct;
+	}
+}
+
+void		ft_print_line(char *str, long addr, int size)
+{
+	char			buffer[16];
+	unsigned int	index;
+
+	ft_print_hex_addr(buffer, 16, addr);
+	ft_print_hex(str, size);
+	index = 0;
+	while (index < 16 - size)
+	{
+		write(1, &" ", 1);
+		++index;
+	}
+	index = 0;
+	while (index < size)
+	{
+		if (is_printable(str[index]))
+			write(1, &str[index], 1);
+		else
+			write(1, &".", 1);
+		++index;
+	}
+	write(1, &"\n", 1);
 }
 
 void		*ft_print_memory(void *addr, unsigned int size)
 {
-	
+	unsigned int		cur;
+
+	cur = 0;
+	while (cur < size)
+	{
+		if (size - cur >= 16)
+			ft_print_line((char *)addr, (long)addr, 16);
+		else
+			ft_print_line((char *)addr, (long)addr, size - cur);
+		cur += 16;
+		addr += 16;
+	}
+	return (addr);
 }

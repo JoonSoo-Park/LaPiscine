@@ -6,14 +6,18 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:51:29 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/27 23:41:22 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:13:29 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int index;
+	unsigned int	index;
+	unsigned int	count;
 
+	count = 0;
+	while (src[count] != '\0')
+		++count;
 	index = 0;
 	while (index < (size - 1) && src[index] != '\0')
 	{
@@ -21,5 +25,5 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		++index;
 	}
 	dest[index] = '\0';
-	return (index);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:26:19 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/27 15:27:18 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/29 21:38:29 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ char			*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[index] = src[index];
 		++index;
 	}
-	dest[index] = '\0';
+	while (index < n)
+	{
+		dest[index] = '\0';
+		++index;
+	}
 	return (dest);
 }
 
