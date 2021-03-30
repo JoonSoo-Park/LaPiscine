@@ -1,0 +1,44 @@
+4c4
+< /*   ft_strncmp.c                                       :+:      :+:    :+:   */
+---
+> /*   test.c                                             :+:      :+:    :+:   */
+9c9
+< /*   Updated: 2021/03/28 16:31:40 by joonpark         ###   ########.fr       */
+---
+> /*   Updated: 2021/03/28 16:29:32 by joonpark         ###   ########.fr       */
+12a13,15
+> #include <stdio.h>
+> #include <string.h>
+> 
+21,22c24
+< 	if (n == 0)
+< 		return (0);
+---
+> 	if (n == 0) return (0);
+24a27,52
+> 
+> int		main(void)
+> {
+> 	char	str1[] = "abcdefg";
+> 	char	str2[] = "ABCDEFG";
+> 	char	str3[] = "abcdeKK";
+> 	char	str4[] = "abcdefghi";
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str1, str2, strncmp(str1, str2, 7));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str1, str2, ft_strncmp(str1, str2, 7));
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str1, str3, strncmp(str1, str3, 7));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str1, str3, ft_strncmp(str1, str3, 7));
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str1, str4, strncmp(str1, str4, 7));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str1, str4, ft_strncmp(str1, str4, 7));
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str2, str1, strncmp(str2, str1, 3));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str2, str1, ft_strncmp(str2, str1, 3));
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str3, str1, strncmp(str3, str1, 3));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str3, str1, ft_strncmp(str3, str1, 3));
+> 
+> 	printf("strncmp(%s, %s) : \t\t%d\n", str4, str1, strncmp(str4, str1, 3));
+> 	printf("ft_strncmp(%s, %s) : \t\t%d\n", str4, str1, ft_strncmp(str4, str1, 3));
+> }

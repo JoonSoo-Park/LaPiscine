@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 22:51:29 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 10:12:01 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/30 11:13:01 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/30 11:24:16 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	index;
-	unsigned int	count;
+#include <unistd.h>
 
-	count = 0;
-	while (src[count] != '\0')
-		++count;
-	index = 0;
-	if (size > 0)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		while (index < (size - 1) && src[index] != '\0')
-		{
-			dest[index] = src[index];
-			++index;
-		}
-		dest[index] = '\0';
+		ft_putnbr(nb / 10);
+		ft_putchar('8');
 	}
-	return (count);
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else
+	{
+		if (nb > 9)
+		{
+			ft_putnbr(nb / 10);
+			nb %= 10;
+		}
+		ft_putchar(48 + nb);
+	}
 }

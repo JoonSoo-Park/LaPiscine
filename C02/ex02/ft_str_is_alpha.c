@@ -6,14 +6,14 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:34:24 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/29 21:45:33 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 09:59:26 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_str_is_alpha(char *str)
 {
-	int		index;
-	char	c;
+	unsigned int	index;
+	char			c;
 
 	index = 0;
 	while (str[index] != '\0')
