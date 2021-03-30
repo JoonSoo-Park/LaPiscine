@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:41:45 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/28 21:50:40 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:48:55 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@ unsigned int	ft_strlen(char *src)
 	int count;
 
 	count = 0;
-	while (*src != '\0')
-	{
-		++src;
+	while (src[count] != '\0')
 		++count;
-	}
 	return (count);
 }
 

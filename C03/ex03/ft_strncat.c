@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:32:06 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 10:55:52 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:15:20 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char				*ft_strncat(char *dest, char *src, unsigned int nb)
 		++ptr;
 	while (*src != '\0' && nb > 0)
 	{
-		*ptr = *src;
-		++ptr;
-		++src;
+		*ptr++ = *src++;
 		--nb;
 	}
 	*ptr = '\0';
