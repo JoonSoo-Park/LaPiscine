@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:34:24 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 09:59:26 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 21:01:38 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_str_is_alpha(char *str)
 		{
 			return (0);
 		}
+		++index;
 	}
 	return (1);
 }
