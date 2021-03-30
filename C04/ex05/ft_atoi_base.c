@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 12:34:32 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 23:29:40 by joonpark         ###   ########.fr       */
+/*   Created: 2021/03/30 23:54:52 by joonpark          #+#    #+#             */
+/*   Updated: 2021/03/31 00:53:58 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,21 @@ int		is_space(char c)
 			c == '\t' || c == '\v');
 }
 
-int		is_number(char c)
+int		is_in_base(char *base, char c)
 {
-	return (c >= '0' && c <= '9');
+	unsigned int	index;
+
+	index = 0;
+	while (base[index] != '\0')
+	{
+		if (base[index] == c)
+			return (1);
+		++index;
+	}
+	return (0);
 }
 
-int		ft_atoi(char *str)
+int		ft_atoi(char *str, char *base, int radix)
 {
 	int		ret;
 	int		minus;
@@ -37,13 +46,47 @@ int		ft_atoi(char *str)
 			++minus;
 		++str;
 	}
-	while (*str != '\0' && is_number(*str))
+	while (*str != '\0' && is_in_base(base, *str))
 	{
-		ret *= 10;
+		ret *= radix;
 		ret += *str - '0';
-		++str;
+		++str
 	}
 	if (minus % 2 != 0)
 		ret = -ret;
 	return (ret);
+}
+
+int		is_dup(char *src)
+{
+	unsigned int	cur;
+	unsigned int	to_check;
+
+	cur = 0;
+	while (src[cur] != '\0')
+	{
+		to_check = cur + 1;
+		while (src[to_check] != '\0')
+		{
+			if (src[cur] == src[to_check])
+				return (1);
+			++to_check;
+		}
+		++cur;
+	}
+	return (0);
+}
+
+int		ft_atoi_base(char *src, char *base)
+{
+	int		radix;
+	int		nbr;
+
+	radix = 0;
+	while (base[radix] != '\0)
+		++radix;
+	if (1 >= radix || is_dup(src))
+		return (0);
+	nbr = ft_atoi(src);
+	
 }
