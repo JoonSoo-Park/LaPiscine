@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 23:51:07 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/29 22:24:12 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 19:47:15 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,28 @@ void		ft_putchar(char c)
 
 int			is_printable(char c)
 {
-	if (32 <= c && c < 127)
-	{
-		return (1);
-	}
-	return (0);
+	return (c >= 32 && c != 127);
 }
 
 void		ft_putstr_non_printable(char *str)
 {
 	const char		*hex_look_up = "0123456789abcdef";
 	unsigned int	index;
-	char			c;
+	unsigned char	c;
 
 	index = 0;
 	while (str[index] != '\0')
 	{
 		c = str[index];
-		if (!is_printable(c))
+		if (is_printable(c))
+		{
+			ft_putchar(c);
+		}
+		else
 		{
 			ft_putchar('\\');
 			ft_putchar(hex_look_up[c / 16]);
 			ft_putchar(hex_look_up[c % 16]);
-		}
-		else
-		{
-			ft_putchar(c);
 		}
 		++index;
 	}

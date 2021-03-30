@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_memory2.c                                 :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:26:44 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 18:23:08 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/30 19:31:44 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int			is_non_printable(char c)
 	return (c < 32 || c == 127);
 }
 
-void		ft_print_hex(char *cur_addr, void *addr, unsigned int size)
+void		ft_print_hex(unsigned char *cur_addr, void *addr, unsigned int size)
 {
 	unsigned int	index;
 
 	index = 0;
 	while (index < 16)
 	{
-		if ((char*)addr + size <= cur_addr + index)
+		if ((unsigned char*)addr + size <= cur_addr + index)
 		{
 			write(1, &"  ", 2);
 		}
@@ -66,7 +66,7 @@ void		ft_print_line(char *cur_addr, void *addr, unsigned int size)
 	unsigned int	index;
 
 	ft_print_addr_hex((long)cur_addr, 16);
-	ft_print_hex(cur_addr, addr, size);
+	ft_print_hex((unsigned char*)cur_addr, addr, size);
 	index = 0;
 	while (index < 16)
 	{
