@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:26:44 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 19:31:44 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/01 02:44:55 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void		ft_print_hex(unsigned char *cur_addr, void *addr, unsigned int size)
 	index = 0;
 	while (index < 16)
 	{
-		if ((unsigned char*)addr + size <= cur_addr + ind:q
-ex)
+		if ((unsigned char*)addr + size <= cur_addr + index)
 		{
 			write(1, &"  ", 2);
 		}
