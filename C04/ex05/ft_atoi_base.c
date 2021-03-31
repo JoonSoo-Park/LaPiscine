@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 23:54:52 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/31 19:39:48 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/31 20:01:15 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		is_dup(char *src)
 
 int		is_in_base(char *base, char c)
 {
-	unsigned int	index;
+	int	index;
 
 	index = 0;
 	while (base[index] != '\0')
@@ -48,7 +48,7 @@ int		is_in_base(char *base, char c)
 			return (index);
 		++index;
 	}
-	return (0);
+	return (-1);
 }
 
 int		ft_atoi(char *str, char *base, int radix)
@@ -67,11 +67,11 @@ int		ft_atoi(char *str, char *base, int radix)
 			++minus;
 		++str;
 	}
-	while (*str != '\0' && (to_add = is_in_base(base, *str)) != 0)
+	while (*str != '\0' && (to_add = is_in_base(base, *str)) >= 0)
 	{
 		ret *= radix;
 		ret += to_add;
-		++str
+		++str;
 	}
 	if (minus % 2 != 0)
 		ret = -ret;
@@ -90,7 +90,8 @@ int		ft_atoi_base(char *src, char *base)
 			return (0);
 		++radix;
 	}
-	if (1 >= radix || is_dup(src))
+	if (1 >= radix || is_dup(base))
 		return (0);
-	nbr = ft_atoi(src);
+	nbr = ft_atoi(src, base, radix);
+	return (nbr);
 }

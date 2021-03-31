@@ -47,7 +47,8 @@ void		ft_print_hex(unsigned char *cur_addr, void *addr, unsigned int size)
 	index = 0;
 	while (index < 16)
 	{
-		if ((unsigned char*)addr + size <= cur_addr + index)
+		if ((unsigned char*)addr + size <= cur_addr + ind:q
+ex)
 		{
 			write(1, &"  ", 2);
 		}

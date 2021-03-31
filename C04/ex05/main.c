@@ -4,5 +4,7 @@ int		ft_atoi_base(char *str, char *base);
 
 int		main()
 {
-	printf("%d\n", ft_atoi_base("\r\v\n \r+---+--+1201201", "012"));
+	printf("%d\n", ft_atoi_base("\r\v\n \r+--+--+1201201", "012"));
+	printf("%d\n", ft_atoi_base("   +-++++--4a", "0123456789abcdef"));
+	printf("%d\n", ft_atoi_base("\r\v\n01232 \r+--+--+1201201", "01234"));
 }
