@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 03:01:25 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/01 03:05:30 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/01 04:41:31 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		ft_is_prime(int nb)
 
 	if (nb == 0 || nb == 1)
 		return (0);
-
 	idx = 2;
 	while (idx * idx <= nb)
 	{
