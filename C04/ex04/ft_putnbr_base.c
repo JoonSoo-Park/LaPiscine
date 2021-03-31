@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 23:31:03 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/30 23:48:10 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/31 20:36:07 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int			is_dup(char *base)
 	return (0);
 }
 
-void		ft_putnbr(int nb, char *base, unsigned int radix)
+void		ft_putnbr(int nb, char *base, int radix)
 {
 	if (nb == -2147483648)
 	{
 		ft_putnbr(nb / radix, base, radix);
-		ft_putchar('8');
+		ft_putchar(base[nb % radix]);
 	}
 	else if (nb < 0)
 	{
@@ -62,7 +62,7 @@ void		ft_putnbr(int nb, char *base, unsigned int radix)
 
 void		ft_putnbr_base(int nbr, char *base)
 {
-	unsigned int		radix;
+	int		radix;
 
 	radix = 0;
 	while (base[radix] != '\0')

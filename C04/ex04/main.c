@@ -4,20 +4,30 @@ void		ft_putnbr_base(int nbr, char *base);
 
 int main()
 {
-	ft_putnbr_base(12345678, "0123456789");
+	printf(" ======== Check Condition ====== \n");
+	printf("empty base : \n");
+	ft_putnbr_base(74, "");
 	printf("\n");
-	ft_putnbr_base(12345678, "0123456789ABCDEF");
+	printf("length 1 : \n");
+	ft_putnbr_base(74, "0");
 	printf("\n");
-	ft_putnbr_base(12345678, "01234567");
+	printf("+, -  : \n");
+	ft_putnbr_base(74, "012345+6789abcdef");
 	printf("\n");
-	ft_putnbr_base(12345678, "poneyvif");
+	printf(" ======== Test ====== \n");
+	printf("-80000000 : \n");
+	ft_putnbr_base(-2147483648, "0123456789abcdef");
 	printf("\n");
-	ft_putnbr_base(12345678, "7");
+	printf("1221 : \n");
+	ft_putnbr_base(52, "012");
 	printf("\n");
-	ft_putnbr_base(12345678, "1237+vc");
+	printf("4a : \n");
+	ft_putnbr_base(74, "0123456789abcdef");
 	printf("\n");
-	ft_putnbr_base(12345678, "12342");
+	printf("oon : \n");
+	ft_putnbr_base(74, "poneyvif");
 	printf("\n");
-	ft_putnbr_base(4526, "01");
+	printf("112 : \n");
+	ft_putnbr_base(74, "01234567");
 	printf("\n");
 }

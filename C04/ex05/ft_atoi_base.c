@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 23:54:52 by joonpark          #+#    #+#             */
-/*   Updated: 2021/03/31 20:01:15 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/03/31 20:16:40 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ int		ft_atoi_base(char *src, char *base)
 	radix = 0;
 	while (base[radix] != '\0')
 	{
-		if (base[radix] == '+' || base[radix] == '-')
+		if (base[radix] == '+' || base[radix] == '-' ||
+			is_space(base[radix]))
 			return (0);
 		++radix;
 	}
