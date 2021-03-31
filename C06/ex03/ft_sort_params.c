@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 03:43:30 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/01 04:22:29 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/01 04:25:27 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	ft_sort(char argc, char *argv[])
 
 int		main(int argc, char *argv[])
 {
-	ft_sort(argc, argv);	
+	ft_sort(argc, argv);
 }
