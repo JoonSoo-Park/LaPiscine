@@ -6,20 +6,63 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 03:09:00 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/01 16:47:30 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:27:47 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int		g_buffer[10];
 int		g_board[10][10];
-int		g_dx[4] = {0, 1, 0, -1};
-int		g_dy[4] = {-1, 0, 1, 0};
+int		g_dy[8] = {-1, 0, 1, 0, -1, -1, 1, 1};
+int		g_dx[8] = {0, 1, 0, -1, -1, 1, -1, 1};
 int		g_x;
+
+void	print_board(void)
+{
+	for (int i = 0; i < 10; ++i) {
+		for (int j = 0; j < 10; ++j) {
+			printf("%d ", g_board[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+
+int		ft_check_diagonal(int y, int x, int idx)
+{
+	int		new_y;
+	int		new_x;
+
+	new_y = y;
+	new_x = x;
+	while (new_y >= 0 && new_x >= 0 && new_y < 10 && new_x < 10)
+	{
+		new_y += g_dy[idx];
+		new_x += g_dx[idx];
+		if (new_y >= 0 && new_x >= 0 && new_y < 10 && new_x < 10)
+		{
+			if (g_board[new_y][new_x] == 1)
+				return (0);
+		}
+	}
+	return (1);
+}
 
 int		ft_check(int y, int x)
 {
+	int		new_y;
+	int		new_x;
+	int		i;
+
+	i = 0;
+	while (i < 8)
+	{
+		if (ft_check_diagonal(y, x, i) == 0)
+			return (0);
+		++i;
+	}
 	return (1);
 }
 
@@ -52,16 +95,20 @@ int		ft_ten_queens_puzzle(void)
 	{
 		if (ft_check(cur_y, cur_x))
 		{
+			g_board[cur_y][cur_x] = 1;
 			g_buffer[cur_x] = cur_y + '0';
 			g_x = cur_x + 1;
 			count += ft_ten_queens_puzzle();
+			g_board[cur_y][cur_x] = 0;
 		}
 		++cur_y;
 	}
-	return (0);
+	return (count);
 }
 
 int		main(int argc, char *argv[])
 {
-	ft_ten_queens_puzzle();
+	int		result;
+	g_x = 0;
+	result = ft_ten_queens_puzzle();
 }
