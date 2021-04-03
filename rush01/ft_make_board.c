@@ -6,11 +6,12 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:20:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:45:11 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:29:38 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void		ft_fill_base(int **board, int size)
 {
@@ -39,6 +40,7 @@ void		ft_fill_board(int **board, int **args, int size)
 	int		j;
 	int		a_idx;
 
+	ft_fill_base(board, size);
 	i = 1;
 	a_idx = 0;
 	while (i < (size + 1))
@@ -52,7 +54,7 @@ void		ft_fill_board(int **board, int **args, int size)
 	}
 }
 
-void		ft_make_board(int **args, int size)
+int			**ft_make_board(int **args, int size)
 {
 	int		i;
 	int		**board;
@@ -65,4 +67,5 @@ void		ft_make_board(int **args, int size)
 		++i;
 	}
 	ft_fill_board(board, args, size);
+	return (board);
 }

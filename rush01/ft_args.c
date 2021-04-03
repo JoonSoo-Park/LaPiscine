@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 10:23:46 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:31:50 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:26:46 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		**ft_args(int argc, char *argv[], int *size)
 		}
 		else
 		{
-			*size = nargs / 4;
+			*size = (nargs / 4);
 			args = ft_get_args(argv[1], *size);
 			return (args);
 		}

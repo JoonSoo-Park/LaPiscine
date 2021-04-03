@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_make_board.h                                    :+:      :+:    :+:   */
+/*   print_board.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 13:20:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 16:24:20 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/03 16:30:01 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/03 17:54:59 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAKE_BOARD_H
-#define FT_MAKE_BOARD_H
+#ifndef PRINT_BOARD
+#define PRINT_BOARD
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "./ft_basic.h"
 
-void		print_board(int **board, int size);
-
-void		ft_fill_board(int **board, int **args, int size);
-
-int			**ft_make_board(int **args, int size);
+void	print_board(int **board, int size);
 
 #endif

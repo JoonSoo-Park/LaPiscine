@@ -6,23 +6,27 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 10:23:46 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:39:36 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:55:12 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "./ft_args.h"
 #include "./ft_make_board.h"
+
+void	print_board(int **, int);
+int		ft_find_answer(int **, int, int, int);
 
 int		main(int argc, char *argv[])
 {
 	int		**args;
-	int		*size;
+	int		**board;
+	int		size;
 
-	args = ft_args(argc, argv, size);
+	args = ft_args(argc, argv, &size);
 	if (args)
 	{
-		ft_make_board(args, *size);
+		board = ft_make_board(args, size);
+		ft_find_answer(board, size, 1, 1);
 	}
 	else
 	{
