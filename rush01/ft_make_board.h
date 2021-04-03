@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_make_board.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 10:23:46 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:39:36 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/03 13:20:54 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/03 14:40:52 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_MAKE_BOARD_H
+#define FT_MAKE_BOARD_H
+
+#include <stdlib.h>
 #include <stdio.h>
-#include "./ft_args.h"
-#include "./ft_make_board.h"
 
-int		main(int argc, char *argv[])
-{
-	int		**args;
-	int		*size;
+void		print_board(int **board, int size);
 
-	args = ft_args(argc, argv, size);
-	if (args)
-	{
-		ft_make_board(args, *size);
-	}
-	else
-	{
-		ft_putstr("Error\n");
-	}
-}
+void		ft_fill_board(int **board, int **args, int size);
+
+void		ft_make_board(int **args, int size);
+
+#endif

@@ -6,28 +6,16 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:20:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:24:33 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:45:11 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-void		print_board(int **board, int size)
-{
-	for (int i = 0; i < size + 2; ++i) {
-		for (int j = 0; j < size + 2; ++j) {
-			printf("%d ", board[i][j]);
-		}
-		printf("\n");
-	}
-}
-
-void		ft_fill_board(int **board, int **args, int size)
+void		ft_fill_base(int **board, int size)
 {
 	int		i;
 	int		j;
-	int		a_idx;
 
 	i = 0;
 	while (i < (size + 2))
@@ -43,6 +31,14 @@ void		ft_fill_board(int **board, int **args, int size)
 		}
 		++i;
 	}
+}
+
+void		ft_fill_board(int **board, int **args, int size)
+{
+	int		i;
+	int		j;
+	int		a_idx;
+
 	i = 1;
 	a_idx = 0;
 	while (i < (size + 1))
@@ -69,5 +65,4 @@ void		ft_make_board(int **args, int size)
 		++i;
 	}
 	ft_fill_board(board, args, size);
-	print_board(board, size);
 }

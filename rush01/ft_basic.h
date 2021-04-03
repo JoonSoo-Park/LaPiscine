@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_basic.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 10:23:46 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:39:36 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:37:50 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "./ft_args.h"
-#include "./ft_make_board.h"
+#ifndef UNISTD_h
+#define UNISTD_h
 
-int		main(int argc, char *argv[])
-{
-	int		**args;
-	int		*size;
+#include <unistd.h>
 
-	args = ft_args(argc, argv, size);
-	if (args)
-	{
-		ft_make_board(args, *size);
-	}
-	else
-	{
-		ft_putstr("Error\n");
-	}
-}
+void	ft_putchar(char c);
+
+void	ft_putstr(char *str);
+
+int		ft_is_space(char c);
+
+#endif

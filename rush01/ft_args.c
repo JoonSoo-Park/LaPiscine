@@ -6,13 +6,12 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 10:23:46 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 14:27:27 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:31:50 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-int		ft_is_space(char c);
+#include "./ft_basic.h"
 
 int		ft_count_args(char *str)
 {
