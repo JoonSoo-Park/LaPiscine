@@ -6,14 +6,21 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:17:49 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 23:02:52 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 10:04:52 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "./utils.h"
+
+/*
+ ** g_board 4*4 크기의 2차원 배열과 같다. 다른 점은 배열 포인터를 가지고 있고 이 포인터들이 다른 배열을 가리킨다.
+ ** g_check는 숫자쌍 24개 중 현재 어떤게 사용중인지 체크하기 위한 용도
+ ** g_lines는 각각의 라인이 몇번째 숫자쌍을 사용하고 있는지 나타낸다.
+ */
 
 int		*g_board[4];
 int		g_check[24];	
+int		g_lines[4];
 
 int		g_pairs[24][4] = {
 	{1, 2, 3, 4},
@@ -44,70 +51,70 @@ int		g_pairs[24][4] = {
 
 void		print_board()
 {
-	for (int i = 0; i < 4; ++i) {
-		for (int j = 0; j < 4; ++j) {
-			printf("%d ", g_board[i][j]);
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			ft_putchar(g_board[i][j] + '0');
+			if (j != 3)
+				ft_putchar(' ');
+			++j;
 		}
-		printf("\n");
+		++i;
+		ft_putchar('\n');
 	}
+	ft_putchar('\n');
 }
 
-int		make_board(int idx)
+int		check_line(int line)
+{
+	int		idx;
+
+	idx = 0;
+	while (idx < 4)
+	{
+		if ((g_lines[idx++] / 6) == (line / 6))
+			return (0);
+	}
+	return (1);
+}
+
+int		run_program(int idx)
 {
 	int			line;
 
 	if (idx >= 4)
-		return (check_validate());
-	line = 0;
-	while (line < 24)
 	{
-		if (g_check[line])
+		print_board();
+		// return (check_validate());
+		return (0);
+	}
+	line = -1;
+	while (++line < 24)
+	{
+		if (g_check[line] || !check_line(line))
 			continue;
 		g_check[line] = 1;
+		g_lines[idx] = line;
 		g_board[idx] = g_pairs[line];
-		make_board(idx + 1);
+		run_program(idx + 1);
 		g_check[line] = 0;
-		++line;
+		g_lines[idx] = -1;
 	}
 	return (0);
 }
 
-int		make_board(int size)
+int		make_board(int start)
 {
-	int		*ptr;
-	
-	for (int i = 0; i < 24; ++i) 
-	{
-		if (g_check[i])
-			continue;
-		g_check[i] = 1;
-		g_board[0] = g_pairs[i];
-		for (int j = 0; j < 24; ++j) 
-		{
-			if (g_check[j])
-				continue;
-			g_check[j] = 1;
-			g_board[1] = g_pairs[j];
-			for (int m = 0; m < 24; ++m) 
-			{
-				if (g_check[m])
-					continue;
-				g_check[m] = 1;
-				g_board[2] = g_pairs[m];
-				for (int k = 0; k < 24; ++k) 
-				{
-					if (g_check[k])
-						continue;
-					g_check[k] = 1;
-					g_board[3] = g_pairs[k];
-					print_board();
-					printf("\n");
-					g_check[k] = 0;
-				}
-				g_check[m] = 0;
-			}
-			g_check[j] = 0;
-		}
-		g_check[i] = 0;
-	}
+	int		idx;
+
+	idx = 0;
+	while (idx < 4)
+		g_lines[idx++] = 10000;
+	return (run_program(start));
 }

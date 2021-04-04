@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 21:38:20 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 23:03:00 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 09:22:23 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		main(int argc, char *argv[])
 	}
 	else
 	{
-		make_board(4);
+		make_board(0);
 	}
 }
