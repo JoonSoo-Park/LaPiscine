@@ -6,23 +6,18 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:17:49 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 10:04:52 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 12:50:28 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./utils.h"
+#include "./validate.h"
 
-/*
- ** g_board 4*4 크기의 2차원 배열과 같다. 다른 점은 배열 포인터를 가지고 있고 이 포인터들이 다른 배열을 가리킨다.
- ** g_check는 숫자쌍 24개 중 현재 어떤게 사용중인지 체크하기 위한 용도
- ** g_lines는 각각의 라인이 몇번째 숫자쌍을 사용하고 있는지 나타낸다.
- */
+int			*g_board[4];
+int			g_check[24];
+int			g_lines[4];
 
-int		*g_board[4];
-int		g_check[24];	
-int		g_lines[4];
-
-int		g_pairs[24][4] = {
+int			g_pairs[24][4] = {
 	{1, 2, 3, 4},
 	{1, 2, 4, 3},
 	{1, 3, 2, 4},
@@ -40,16 +35,16 @@ int		g_pairs[24][4] = {
 	{3, 2, 1, 4},
 	{3, 2, 4, 1},
 	{3, 4, 1, 2},
-	{4, 4, 2, 1},
+	{3, 4, 2, 1},
 	{4, 1, 2, 3},
 	{4, 1, 3, 2},
 	{4, 2, 1, 3},
 	{4, 2, 3, 1},
 	{4, 3, 1, 2},
-	{4, 3, 2, 1},
+	{4, 3, 2, 1}
 };
 
-void		print_board()
+void		print_board(void)
 {
 	int		i;
 	int		j;
@@ -71,30 +66,41 @@ void		print_board()
 	ft_putchar('\n');
 }
 
-int		check_line(int line)
+int			check_line(int line)
 {
 	int		idx;
+	int		n;
 
 	idx = 0;
-	while (idx < 4)
+	while (idx < 24)
 	{
-		if ((g_lines[idx++] / 6) == (line / 6))
-			return (0);
+		if (g_check[idx])
+		{
+			n = 0;
+			while (n < 4)
+			{
+				if (g_pairs[idx][n] == g_pairs[line][n])
+					return (0);
+				++n;
+			}
+		}
+		++idx;
 	}
 	return (1);
 }
 
-int		run_program(int idx)
+int			run_program(int idx, int line)
 {
-	int			line;
-
 	if (idx >= 4)
 	{
-		print_board();
-		// return (check_validate());
+		if (validate_down() && validate_up() &&
+			validate_left() && validate_right())
+		{
+			print_board();
+			return (1);
+		}
 		return (0);
 	}
-	line = -1;
 	while (++line < 24)
 	{
 		if (g_check[line] || !check_line(line))
@@ -102,19 +108,20 @@ int		run_program(int idx)
 		g_check[line] = 1;
 		g_lines[idx] = line;
 		g_board[idx] = g_pairs[line];
-		run_program(idx + 1);
+		if (run_program(idx + 1, -1))
+			return (1);
 		g_check[line] = 0;
-		g_lines[idx] = -1;
+		g_lines[idx] = 10000;
 	}
 	return (0);
 }
 
-int		make_board(int start)
+int			make_board(int start)
 {
 	int		idx;
 
 	idx = 0;
 	while (idx < 4)
 		g_lines[idx++] = 10000;
-	return (run_program(start));
+	return (run_program(start, -1));
 }

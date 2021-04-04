@@ -6,17 +6,17 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 21:38:20 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 09:22:23 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 12:42:47 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./utils.h"
+#include "./make_board.h"
 #include <stdio.h>
 
 extern int		g_args[16];
 extern int		g_pairs[24][4];
-
-int		make_board(int);
+extern int		*g_board[4];
 
 int		main(int argc, char *argv[])
 {

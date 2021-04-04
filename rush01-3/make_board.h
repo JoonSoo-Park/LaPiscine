@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   make_board.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 21:07:30 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 12:55:05 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/04 12:40:49 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/04 12:55:34 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef MAKE_BOARD_H
+# define MAKE_BOARD_H
 
-void		ft_putchar(char c);
+void	print_board();
 
-void		ft_putstr(char *str);
+int		check_line(int line);
 
-int			is_space(char c);
+int		run_program(int idx);
 
-int			is_valid_args(char *args);
+int		make_board(int start);
 
 #endif

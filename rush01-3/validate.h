@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   validate.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 21:07:30 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 12:55:05 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/04 10:31:51 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/04 12:55:44 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef VALIDATE_H
+# define VALIDATE_H
 
-void		ft_putchar(char c);
+int		validate_up(void);
 
-void		ft_putstr(char *str);
+int		validate_down(void);
 
-int			is_space(char c);
+int		validate_left(void);
 
-int			is_valid_args(char *args);
+int		validate_right(void);
 
 #endif
