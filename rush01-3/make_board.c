@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:17:49 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 14:11:50 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 20:25:12 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void		print_board(void)
 		++i;
 		ft_putchar('\n');
 	}
-	ft_putchar('\n');
 }
 
 int			check_line(int line)

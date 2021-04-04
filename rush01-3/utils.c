@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 21:08:36 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 21:55:51 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 20:25:36 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			is_valid_args(char *str)
 			++str;
 		if (*str != '\0')
 		{
-			if ('1' <= *str && *str <= '9')
+			if ('1' <= *str && *str <= '4')
 			{
 				if (ct == 16 || (*(str + 1) != '\0' && !is_space(*(str + 1))))
 					return (0);
