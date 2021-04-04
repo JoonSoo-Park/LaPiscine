@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:17:49 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 12:50:28 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:11:50 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int			*g_board[4];
 int			g_check[24];
-int			g_lines[4];
 
 int			g_pairs[24][4] = {
 	{1, 2, 3, 4},
@@ -106,22 +105,15 @@ int			run_program(int idx, int line)
 		if (g_check[line] || !check_line(line))
 			continue;
 		g_check[line] = 1;
-		g_lines[idx] = line;
 		g_board[idx] = g_pairs[line];
 		if (run_program(idx + 1, -1))
 			return (1);
 		g_check[line] = 0;
-		g_lines[idx] = 10000;
 	}
 	return (0);
 }
 
 int			make_board(int start)
 {
-	int		idx;
-
-	idx = 0;
-	while (idx < 4)
-		g_lines[idx++] = 10000;
 	return (run_program(start, -1));
 }
