@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 21:38:20 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/04 12:42:47 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/04 12:58:23 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		main(int argc, char *argv[])
 	}
 	else
 	{
-		make_board(0);
+		if (!make_board(0))
+			ft_putstr("Error\n");
 	}
 }
