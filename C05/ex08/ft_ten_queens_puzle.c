@@ -6,12 +6,11 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 03:09:00 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/01 18:27:47 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/05 09:48:29 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int		g_buffer[10];
 int		g_board[10][10];
@@ -21,13 +20,23 @@ int		g_x;
 
 void	print_board(void)
 {
-	for (int i = 0; i < 10; ++i) {
-		for (int j = 0; j < 10; ++j) {
-			printf("%d ", g_board[i][j]);
+	int		i;
+	int		j;
+	char	c;
+
+	while (i < 10)
+	{
+		j = 0;
+		while (j < 10)
+		{
+			c = g_board[i][j] + '0';
+			write(1, &c, 1);
+			++j;
 		}
-		printf("\n");
+		++i;
+		write(1, "\n", 1);
 	}
-	printf("\n");
+	write(1, "\n", 1);
 }
 
 int		ft_check_diagonal(int y, int x, int idx)
@@ -104,11 +113,4 @@ int		ft_ten_queens_puzzle(void)
 		++cur_y;
 	}
 	return (count);
-}
-
-int		main(int argc, char *argv[])
-{
-	int		result;
-	g_x = 0;
-	result = ft_ten_queens_puzzle();
 }

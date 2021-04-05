@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 21:08:36 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/03 21:09:54 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/05 21:07:59 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/05 21:12:14 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void		ft_putchar(char c)
+int		ft_ultimate_range(int **range, int min, int max)
 {
-	write(1, &c, 1);
+	unsigned int	size;
+
+	if (min >= max)
+		return (0);
+	size = max - min;
+	*range = malloc(sizeof(int) * size);
+	size = 0;
+	while (min < max)
+		range[size++] = range[min++];
+	return (size);
 }
 
-void		ft_putstr(char *str)
-{
-	while (*str != '\0')
-	{
-		ft_putchar(*str);
-		++str;
-	}
-}
 
-int			is_space(char c)
-{
-	return (c == ' ' || c == '\t' ||
-			c == '\v' || c == '\f' ||
-			c == '\r' || c == '\n');
-}
