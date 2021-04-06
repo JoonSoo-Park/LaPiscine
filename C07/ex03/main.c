@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 16:36:07 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/06 20:29:47 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/06 21:10:54 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/06 21:34:54 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#inlcude <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char *ft_strjoin(int size, char **strs, char *sep);
+
+int main()
 {
-	unsigned int	src_length;
-	char			*ret;
-
-	src_length = 0;
-	while (src[src_length] != '\0')
-		++src_length;
-
-	ret = malloc(sizeof(char) * (src_length + 1));
-	if (ret == 0)
-		return (0);
-	src_length = 0;
-	while (src[src_length] != '\0')
+	char *buffer;
+	char *strs[4];
+	strs[0] = "1234567";
+	strs[1] = "8901234";
+	strs[2] = "567890123";
+	strs[3] = "45678";
+	buffer = ft_strjoin(3, strs, "abc");
+	if (buffer != 0)
 	{
-		ret[src_length] = src[src_length];
-		++src_length;
+		printf("%s\n", buffer);
+		free(buffer);
 	}
-	ret[src_length] = '\0';
-	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:38:25 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/05 21:07:15 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:41:10 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		*ft_range(int min, int max)
 	size = max - min;
 	ret = malloc(sizeof(int) * size);
 	size = 0;
-	while (min < max) 
+	while (min < max)
 		ret[size++] = min++;
 	return (ret);
 }

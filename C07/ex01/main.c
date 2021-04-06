@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 21:07:59 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/06 20:43:10 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/06 20:43:32 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/06 20:47:57 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 
-int		ft_ultimate_range(int **range, int min, int max)
+int		*ft_range(int min, int max);
+
+int main()
 {
-	unsigned int	size;
+	int		*buffer;
+	int		min = -3;
+	int		max = 7;
+	int		size = max - min;
 
-	if (min >= max)
-		return (0);
+	buffer = ft_range(min, max);
+	for (int i = 0; i < size; ++i) {
+		printf("%d ", buffer[i]);
+	}
+	free(buffer);
+
+	printf("\n");
+
+	min = -2147483648;
+	max = -2147483640;
 	size = max - min;
-	*range = malloc(sizeof(int) * size);
-	if (*range == 0)
-		return (-1);
-	size = 0;
-	while (min < max)
-		(*range)[size++] = min++;
-	return (size);
+	buffer = ft_range(min, max);
+	for (int i = 0; i < size; ++i) {
+		printf("%d ", buffer[i]);
+	}
+	free(buffer);
 }
-
-
