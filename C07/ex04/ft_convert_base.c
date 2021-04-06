@@ -6,12 +6,11 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 21:36:24 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/06 23:06:39 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/06 23:07:52 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		ft_strlen(char *str);
 
@@ -87,11 +86,4 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	}
 	printf("Number : %d\n", num);
 	return (ft_convert_to(num, base_to, minus));
-}
-
-int main()
-{
-	char *str;
-	str = ft_convert_base("\r\n  125a1v", "0123456789abcdef", "012345678");
-	printf("%s", str);
 }
