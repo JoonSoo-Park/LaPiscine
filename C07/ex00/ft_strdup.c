@@ -6,11 +6,11 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 16:36:07 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/06 20:29:47 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/07 00:42:50 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#inlcude <stdlib.h>
+#include <stdlib.h>
 
 char	*ft_strdup(char *src)
 {
@@ -20,7 +20,6 @@ char	*ft_strdup(char *src)
 	src_length = 0;
 	while (src[src_length] != '\0')
 		++src_length;
-
 	ret = malloc(sizeof(char) * (src_length + 1));
 	if (ret == 0)
 		return (0);

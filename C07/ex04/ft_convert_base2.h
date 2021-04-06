@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_convert_base2.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 21:07:59 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/07 00:37:31 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/07 00:38:34 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/07 00:39:32 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_CONVERT_BASE2_H
+# define FT_CONVERT_BASE2_H
 
-int		ft_ultimate_range(int **range, int min, int max)
-{
-	unsigned int	size;
+int		ft_strlen(char *str);
 
-	if (min >= max)
-		return (0);
-	size = max - min;
-	*range = malloc(sizeof(int) * size);
-	if (*range == 0)
-		return (-1);
-	size = 0;
-	while (min < max)
-		(*range)[size++] = min++;
-	return (size);
-}
+int		ft_is_space(char c);
+
+int		ft_check_base(char *str);
+
+int		get_base_to_length(int num, int radix);
+
+#endif
