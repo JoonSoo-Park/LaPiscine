@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/04/08 15:49:28 by joonpark          #+#    #+#              #
+#    Updated: 2021/04/08 15:49:39 by joonpark         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
@@ -25,4 +37,9 @@ $(TARGET) : $(OBJECTS)
 	ar rcs $(TARGET) $(OBJECTS)
 
 clean:
-	find . -type f \( -name "*.o" -o -name "*.d" \) -delete
+	rm -f $(OBJECTS)
+
+fclean:
+	rm -f $(TARGET)
+
+re: fclean all
