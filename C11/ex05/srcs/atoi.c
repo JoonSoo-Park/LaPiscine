@@ -6,26 +6,26 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:14:30 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/12 23:41:48 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/13 02:07:55 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		is_space(char c)
+int				is_space(char c)
 {
 	return (c == ' ' || c == '\n' ||
 			c == '\t' || c == '\v' ||
 			c == '\f' || c == '\r');
 }
 
-int		is_number(char c)
+int				is_number(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int		ft_atoi(char *str)
+long long		ft_atoi(char *str)
 {
-	int		minus;
-	int		ret;
+	int				minus;
+	long long		ret;
 
 	minus = 0;
 	while (is_space(*str) && *str != '\0')

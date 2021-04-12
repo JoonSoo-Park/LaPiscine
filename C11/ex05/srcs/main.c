@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 22:51:31 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/13 01:36:22 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/13 02:07:19 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		check_operator(char *str)
 	return (1);
 }
 
-void	ft_operate(int value1, int value2, char operator)
+void	ft_operate(long long value1, long long value2, char operator)
 {
 	if (operator == '+')
 		ft_putnbr(value1 + value2);
@@ -51,8 +51,8 @@ void	ft_operate(int value1, int value2, char operator)
 
 int		main(int argc, char *argv[])
 {
-	int		value1;
-	int		value2;
+	long long	value1;
+	long long	value2;
 
 	if (argc == 4)
 	{

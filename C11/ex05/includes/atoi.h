@@ -6,13 +6,13 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:41:58 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/12 23:42:48 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/13 02:08:12 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ATOI_H
 # define ATOI_H
 
-int		ft_atoi(char *str);
+long long		ft_atoi(char *str);
 
 #endif
