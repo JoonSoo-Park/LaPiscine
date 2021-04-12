@@ -6,13 +6,13 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:51:11 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/08 19:12:37 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/10 10:24:22 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int			is_in_charset(char *charset, char c)
+int				is_in_charset(char *charset, char c)
 {
 	while (*charset != '\0')
 		if (*charset++ == c)
@@ -20,7 +20,7 @@ int			is_in_charset(char *charset, char c)
 	return (0);
 }
 
-int			count_strs(char *str, char *charset)
+int				count_strs(char *str, char *charset)
 {
 	int		cnt;
 
@@ -39,25 +39,19 @@ int			count_strs(char *str, char *charset)
 	return (cnt);
 }
 
-char		*ft_strncpy(char *dst, char *src, int n)
+void			ft_strncpy(char *dest, char *src, int n)
 {
-	unsigned int	idx;
-
-	idx = 0;
-	while (*src != '\0' && idx < (unsigned int)n)
+	while (*src != '\0' && n > 0)
 	{
-		dst[idx] = src[idx];
-		++idx;
+		*dest = *src;
+		++dest;
+		++src;
+		--n;
 	}
-	while (idx < (unsigned int)n)
-	{
-		dst[idx] = '\0';
-		++idx;
-	}
-	return (dst);
+	*dest = '\0';
 }
 
-char		**ft_split(char *str, char *charset)
+char			**ft_split(char *str, char *charset)
 {
 	char		**ret;
 	char		*cur;
@@ -73,8 +67,7 @@ char		**ft_split(char *str, char *charset)
 			while (*str != '\0' && !is_in_charset(charset, *str))
 				++str;
 			ret[idx] = (char*)malloc(sizeof(char) * (str - cur + 1));
-			ret[idx] = ft_strncpy(ret[idx], cur, str - cur);
-			++idx;
+			ft_strncpy(ret[idx++], cur, (str - cur));
 		}
 		++str;
 	}

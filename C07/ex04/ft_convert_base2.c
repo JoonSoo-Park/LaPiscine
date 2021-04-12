@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 21:36:41 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/06 22:59:34 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:36:32 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ int		get_base_to_length(int num, int radix)
 	int		len;
 
 	len = 0;
-	while (num > 0)
+	while (1)
 	{
+		++len;
+		if (num / radix == 0)
+			break ;
 		num /= radix;
-		len++;
 	}
 	return (len);
 }

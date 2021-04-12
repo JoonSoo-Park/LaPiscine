@@ -6,12 +6,19 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 21:36:24 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/07 00:41:16 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/07 15:37:38 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "./ft_convert_base2.h"
+
+int		ft_strlen(char *str);
+
+int		ft_is_space(char c);
+
+int		ft_check_base(char *str);
+
+int		get_base_to_length(int num, int radix);
 
 int		is_in_base(char *str, char c)
 {
@@ -77,5 +84,6 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		num += to_add;
 		++nbr;
 	}
+	minus = num == 0 ? 1 : minus;
 	return (ft_convert_to(num, base_to, minus));
 }

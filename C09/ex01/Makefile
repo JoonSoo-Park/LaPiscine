@@ -6,40 +6,36 @@
 #    By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 15:49:28 by joonpark          #+#    #+#              #
-#    Updated: 2021/04/08 15:49:39 by joonpark         ###   ########.fr        #
+#    Updated: 2021/04/12 15:37:00 by joonpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
-INCLUDE = -Iinludes/
+INCLUDE = -I includes
 
-SRC_DIR = ./srcs
+SRC_DIR = srcs
 
-OBJ_DIR = ./srcs
+NAME = libft.a
 
-TARGET = libft.a
+SRCS = $(SRC_DIR)/ft_putchar.c $(SRC_DIR)/ft_swap.c $(SRC_DIR)/ft_putstr.c $(SRC_DIR)/ft_strlen.c $(SRC_DIR)/ft_strcmp.c
 
-SRCS = $(notdir $(wildcard $(SRC_DIR)/*.c))
+OBJECTS = $(SRCS:.c=.o)
 
-OBJS = $(SRCS:c=o)
+all: $(NAME)
 
-OBJECTS = $(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
+%.o: %.c
+	$(CC) $(CFLAGS) $< -o $@ $(INCLUDE)
 
-all: $(TARGET)
-
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ -MD
-
-$(TARGET) : $(OBJECTS)
-	ar rcs $(TARGET) $(OBJECTS)
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
 
-fclean:
-	rm -f $(TARGET)
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
