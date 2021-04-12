@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 14:52:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/11 16:08:39 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/12 14:48:34 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/12 16:51:26 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "map_info.h"
 
-char		*ft_strndup(char *str, int size)
+void	free_everything(char **map, int **imap, t_info *info)
 {
 	int		idx;
-	char	*ret;
 
-	if ((ret = malloc(sizeof(char) * (size + 1))) == 0)
-		return (0);
 	idx = 0;
-	while (size > 0 && *str)
+	while (idx < info->col)
 	{
-		ret[idx++] = *str++;
-		--size;
+		free(map[idx]);
+		free(imap[idx]);
+		++idx;
 	}
-	ret[idx] = '\0';
-	return (ret);
+	free(map);
+	free(imap);
 }

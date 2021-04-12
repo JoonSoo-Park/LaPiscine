@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   map_info.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 14:52:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/11 16:08:39 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/12 09:56:25 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/12 14:58:48 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef MAP_INFO
+# define MAP_INFO
 
-char		*ft_strndup(char *str, int size)
+typedef struct s_map_info
 {
-	int		idx;
-	char	*ret;
+	char	empty;
+	char	obstacle;
+	char	full;
+	int		row;
+	int		col;
+}			t_info;
 
-	if ((ret = malloc(sizeof(char) * (size + 1))) == 0)
-		return (0);
-	idx = 0;
-	while (size > 0 && *str)
-	{
-		ret[idx++] = *str++;
-		--size;
-	}
-	ret[idx] = '\0';
-	return (ret);
-}
+typedef struct s_point
+{
+	int		y;
+	int		x;
+	int		val;
+}			t_point;
+
+#endif

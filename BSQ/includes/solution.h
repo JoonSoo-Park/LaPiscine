@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   solution.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 14:52:54 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/11 16:08:39 by joonpark         ###   ########.fr       */
+/*   Created: 2021/04/12 14:59:51 by joonpark          #+#    #+#             */
+/*   Updated: 2021/04/12 16:48:50 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef SOLUTION_H
+# define SOLUTION_H
 
-char		*ft_strndup(char *str, int size)
-{
-	int		idx;
-	char	*ret;
+#include "map_info.h"
 
-	if ((ret = malloc(sizeof(char) * (size + 1))) == 0)
-		return (0);
-	idx = 0;
-	while (size > 0 && *str)
-	{
-		ret[idx++] = *str++;
-		--size;
-	}
-	ret[idx] = '\0';
-	return (ret);
-}
+int		func(int **map, int y, int x);
+
+void	solution(int **map, t_info *map_info, t_point *point);
+
+void	make_result(char **map, t_info *map_info, t_point *point);
+
+#endif
