@@ -6,13 +6,12 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 12:16:33 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/12 18:59:50 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/14 20:45:36 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_info.h"
 #include <limits.h>
-#include <stdio.h>
 
 int			func(int **map, int y, int x)
 {
@@ -29,7 +28,7 @@ int			func(int **map, int y, int x)
 		idx = 0;
 		while (idx < 3)
 		{
-			if (y + dy[idx] <= 0 || x + dx[idx] <= 0)
+			if (y + dy[idx] < 0 || x + dx[idx] < 0)
 				return (map[y][x]);
 			cur_val = map[y + dy[idx]][x + dx[idx]];
 			cur_min = cur_val < cur_min ? cur_val : cur_min;
@@ -70,7 +69,6 @@ void		solution(int **map, t_info *map_info, t_point *point)
 
 void		make_result(char **map, t_info *map_info, t_point *point)
 {
-	int		idx;
 	int		y;
 	int		x;
 

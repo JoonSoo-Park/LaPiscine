@@ -1,33 +1,35 @@
 CC = gcc
 
-CFLAGS =
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE = -Iincludes/
 
-SRC_DIR = ./srcs
+SRC_DIR = srcs
 
-OBJ_DIR = ./srcs
+OBJ_DIR = srcs
 
-TARGET = bsq
+NAME = bsq
 
-SRCS = $(notdir $(wildcard $(SRC_DIR)/*.c))
+SRCS = $(SRC_DIR)/core.c $(SRC_DIR)/ft_free.c $(SRC_DIR)/info.c $(SRC_DIR)/info2.c $(SRC_DIR)/info3.c $(SRC_DIR)/main.c $(SRC_DIR)/solution.c $(SRC_DIR)/utilities.c
+
+$(INFO $(SRCS))
 
 OBJS = $(SRCS:c=o)
 
-OBJECTS = $(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
+OBJECTS = $(patsubst %.o,%.o,$(OBJS))
 
-all: $(TARGET)
+all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(TARGET): $(OBJECTS)
+$(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all

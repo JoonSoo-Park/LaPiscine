@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 21:00:39 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/12 22:49:57 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:02:27 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,5 @@ int			ft_descending(int *tab, int length, int (*f)(int, int))
 
 int			ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	if (length == 1)
-		return (1);
-	if (tab[0] <= tab[1])
-		return (ft_ascending(tab, length, f));
-	else
-		return (ft_descending(tab, length, f));
+	return (ft_ascending(tab, length, f) || ft_descending(tab, length, f));
 }

@@ -6,40 +6,42 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 01:59:50 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/13 02:05:56 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:27:11 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			func(char *s1, char *s2)
+void	ft_swap(char **a, char **b)
 {
-	while (*s1 != '\0' && *s1 == *s2)
-	{
-		++s1;
-		++s2;
-	}
-	return ((unsigned int)*s1 - (unsigned int)*s2);
+	char *temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-void		ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int		i;
-	int		j;
-	char	*temp;
+	int		size;
+	int		swap;
 
-	i = 0;
-	while (tab[i] != 0)
+	size = 0;
+	while (tab[size])
+		size++;
+	while (1)
 	{
-		j = i + 1;
-		while (tab[j] != 0)
+		i = 0;
+		swap = 0;
+		while (i < size - 1)
 		{
-			if (cmp(tab[i], tab[j]) > 0)
+			if (cmp(tab[i], tab[i + 1]) > 0)
 			{
-				temp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = temp;
+				ft_swap(&tab[i], &tab[i + 1]);
+				swap = 1;
 			}
-			++j;
+			i++;
 		}
-		++i;
+		if (!swap)
+			break ;
 	}
 }

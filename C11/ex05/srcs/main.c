@@ -6,7 +6,7 @@
 /*   By: joonpark <joonpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 22:51:31 by joonpark          #+#    #+#             */
-/*   Updated: 2021/04/13 02:07:19 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:01:09 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	ft_operate(long long value1, long long value2, char operator)
 	else if (operator == '/')
 	{
 		if (value2 == 0)
-			ft_putstr("Stop: division by zero\n");
+			ft_putstr("Stop: division by zero");
 		else
 			ft_putnbr(value1 / value2);
 	}
 	else
 	{
 		if (value2 == 0)
-			ft_putstr("Stop: modulo by zero\n");
+			ft_putstr("Stop: modulo by zero");
 		else
 			ft_putnbr(value1 % value2);
 	}
@@ -58,11 +58,12 @@ int		main(int argc, char *argv[])
 	{
 		if (check_operator(argv[2]) == 0)
 		{
-			ft_putchar('0');
+			ft_putstr("0\n");
 			return (0);
 		}
 		value1 = ft_atoi(argv[1]);
 		value2 = ft_atoi(argv[3]);
 		ft_operate(value1, value2, argv[2][0]);
+		ft_putchar('\n');
 	}
 }

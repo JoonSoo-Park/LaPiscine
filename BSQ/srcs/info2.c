@@ -6,30 +6,49 @@
 /*   By: gyun <gyun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:22:50 by gyun              #+#    #+#             */
-/*   Updated: 2021/04/12 18:34:13 by joonpark         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:29:04 by joonpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "ft.h"
+#include "ft_free.h"
+
+char				*get_first_line_sub(t_info *map, char *str)
+{
+	while (*str != '\0' && !is_printable(*str))
+		str++;
+	map->empty = *str++;
+	while (*str != '\0' && !is_printable(*str))
+		str++;
+	map->obstacle = *str++;
+	while (*str != '\0' && !is_printable(*str))
+		str++;
+	map->full = *str++;
+	return (str);
+}
 
 char				*get_first_line(t_info *map, char *str)
 {
 	int				result;
 
 	result = 0;
-	while (*str >= '0' && *str <= '9')
+	while (*str == '\f' || *str == '\n' || *str == '\r' ||
+			*str == '\v' || *str == '\t' || *str == ' ')
+		str++;
+	while (*str == '+' || *str == '-')
+		str++;
+	while ((*str >= '0' && *str <= '9') && (*str != 0))
 	{
 		result = result * 10;
 		result = result + *str - '0';
 		str++;
 	}
 	map->col = result;
-	map->empty = *str++;
-	map->obstacle = *str++;
-	map->full = *str++;
-	return (++str);
+	str = get_first_line_sub(map, str);
+	if (*str == '\n')
+		return (++str);
+	else
+		return (0);
 }
 
 char				**get_map_from_str(t_info *info, char *str)
@@ -50,7 +69,11 @@ char				**get_map_from_str(t_info *info, char *str)
 		ckp = str;
 		while (*str != '\n')
 			str++;
-		array[index] = ft_strdup(ckp, str - ckp);
+		if (!(array[index] = ft_strdup(ckp, str - ckp)))
+		{
+			map_free(array, info, index);
+			return (0);
+		}
 		index++;
 	}
 	array[index] = 0;
@@ -78,7 +101,7 @@ int					*intdup(t_info *map, char *str, int size)
 	return (tmp);
 }
 
-int					**get_sol_from_str(t_info *map, char *str)
+int					**get_sol_from_str(char **mmap, t_info *map, char *str)
 {
 	int				**array;
 	int				count;
@@ -96,7 +119,11 @@ int					**get_sol_from_str(t_info *map, char *str)
 		ckp = str;
 		while (*str != '\n')
 			str++;
-		array[index] = intdup(map, ckp, str - ckp);
+		if (!(array[index] = intdup(map, ckp, str - ckp)))
+		{
+			sol_free(mmap, array, map, index);
+			return (0);
+		}
 		map->row = str - ckp;
 		index++;
 	}
